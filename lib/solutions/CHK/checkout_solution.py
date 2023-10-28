@@ -14,13 +14,22 @@ def checkout(skus: str) -> int:
     """
     checkout_total = 0
     
-    #parse input string first
+    # parse input string first
+    items = skus.split(",")
 
-    items = skus.split(,)
-
-    if skus == "A":
-        checkout_total += 50
+    for item in items:
+        if item == "A":
+            checkout_total += 50
+        if item == "B":
+            checkout_total += 30
+        if item == "C":
+            checkout_total += 20
+        if item == "D":
+            checkout_total += 15
     
+    return checkout_total
+    
+
 
 
 

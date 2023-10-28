@@ -25,7 +25,7 @@ def checkout(skus: str) -> int:
     special_offers = {
         'A': [(3, 130), (5, 120)],
         'B': [(2, 45)],
-        # E: ?
+        'E': [(2, 'B')]
     }
 
     checkout_total = 0
@@ -47,9 +47,7 @@ def checkout(skus: str) -> int:
                 special_offer_count, special_offer_price = special_offer
                 while count >= special_offer_count:
                     checkout_total += special_offer_price
-                    print(checkout_total)
-                    count -= special_offer_price
-                    print(count)
+                    count -= special_offer_count
         if count > 0:
             if item in item_prices:
                 checkout_total += count * item_prices[item]
@@ -59,7 +57,7 @@ def checkout(skus: str) -> int:
     print(checkout_total)
     return checkout_total
 
-checkout('AAAA')
+checkout('EEB')
 
 """
         if item.strip()  == "A":
@@ -77,5 +75,6 @@ checkout('AAAA')
                 checkout_total += 45
                 b_occurence = 0
 """
+
 
 

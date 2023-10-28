@@ -4,5 +4,5 @@ import pytest
 
 class TestSum():
     def test_valid_sum(self):
-        assert hello_solution.hello("")
+        assert hello_solution.hello("") == "Hello World!"
 

@@ -25,10 +25,10 @@ def checkout(skus: str) -> int:
     special_offers = {
         'A': [(3, 130), (5, 120)],
         'B': [(2, 45)],
-        'E': [(2, 'B')]
+        #'E': [(2, 'B')]
     }
 
-    free_offer = {
+    free_offers = {
         'E': [(2, 'B')]
     } 
 
@@ -52,7 +52,10 @@ def checkout(skus: str) -> int:
                 while count >= special_offer_count:
                     checkout_total += special_offer_price
                     count -= special_offer_count
-                
+        if item in free_offers:
+            for free_offer in free_offers[item]:
+                free_offers_count, special_offer_free_item = special_offer
+
         if count > 0:
             if item in item_prices:
                 checkout_total += count * item_prices[item]
@@ -80,6 +83,7 @@ checkout('EEB')
                 checkout_total += 45
                 b_occurence = 0
 """
+
 
 
 

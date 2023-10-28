@@ -51,7 +51,7 @@ def checkout(skus: str) -> int:
                 free_offers_count, free_offers_item = free_offer
                 #free_offers_count == item_counts[item] and
                 if free_offers_item in item_counts.keys():
-                    item_counts[free_offers_item] -= item_counts[item] / free_offers_count
+                    item_counts[free_offers_item] -= round(item_counts[item] / free_offers_count)
                 print(free_offers_count)
                 print(free_offers_item)
         if item in special_offers:
@@ -68,7 +68,7 @@ def checkout(skus: str) -> int:
                 return -1
     print(item_counts)
     print(checkout_total)
-    print(2%2)
+    print(round(3/2))
     return checkout_total
 
 checkout('EEBB')

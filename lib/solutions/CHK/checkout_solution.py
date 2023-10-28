@@ -72,7 +72,3 @@ def checkout(skus: str) -> int:
                 return -1
 
     return checkout_total
-
-
-
-

@@ -49,7 +49,7 @@ def checkout(skus: str) -> int:
         if item in free_offers:
             for free_offer in free_offers[item]:
                 free_offers_count, free_offers_item = free_offer
-                if free_offers_item in item_counts.keys():
+                if free_offers_count == item_counts[item] and free_offers_item in item_counts.keys():
                     item_counts[free_offers_item] -= 1
                 print(free_offers_count)
                 print(free_offers_item)
@@ -69,7 +69,7 @@ def checkout(skus: str) -> int:
     print(checkout_total)
     return checkout_total
 
-checkout('EBB')
+checkout('EEBB')
 
 """
         if item.strip()  == "A":
@@ -87,6 +87,7 @@ checkout('EBB')
                 checkout_total += 45
                 b_occurence = 0
 """
+
 
 
 

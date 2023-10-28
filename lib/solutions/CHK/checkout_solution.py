@@ -35,12 +35,13 @@ def checkout(skus: str) -> int:
             if b_occurence == 2:
                 checkout_total -= 60
                 checkout_total += 45
-                a_occurence = 0
+                b_occurence = 0
         if item.strip()  == "C":
             checkout_total += 20
         if item.strip()  == "D":
             checkout_total += 15
 
     return checkout_total
+
 
 

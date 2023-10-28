@@ -21,12 +21,21 @@ def checkout(skus: str) -> int:
         if item not in ["A", "B", "C", "D"]:
             return -1
         if item.strip()  == "A":
+            a_occurence += 1
             checkout_total += 50
+            if a_occurence == 3:
+                checkout_total -= 150
+                checkout_total += 130
+                a_occurence = 0
         if item.strip()  == "B":
+            b_occurence += 1
             checkout_total += 30
         if item.strip()  == "C":
+            c_occurence += 1
             checkout_total += 20
         if item.strip()  == "D":
+            d_occurence += 1
             checkout_total += 15
 
     return checkout_total
+

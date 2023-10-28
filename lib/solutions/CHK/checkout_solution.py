@@ -4,7 +4,7 @@
 # skus = unicode string
 def checkout(skus: str) -> int:
     """
-    Desc
+    Method used to calculate the total checkout value based on the products contained in a basket
     
     Args:
         skus (str): a String containing the SKUs of all the products in the basket
@@ -15,11 +15,15 @@ def checkout(skus: str) -> int:
     checkout_total = 0
     
     # parse input string first
-    items = skus.split(",")
+    basket_items = skus.split(",")
 
-    for item in items:
+    for item in basket_items:
+        if item == "3A" :
+            checkout_total += 130
         if item == "A":
             checkout_total += 50
+        if item == "2B":
+            checkout_total += 45
         if item == "B":
             checkout_total += 30
         if item == "C":
@@ -29,6 +33,7 @@ def checkout(skus: str) -> int:
     
     return checkout_total
     
+
 
 
 

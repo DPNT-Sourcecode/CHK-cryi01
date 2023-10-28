@@ -65,7 +65,11 @@ def checkout(skus: str) -> int:
                 checkout_total += count * item_prices[item]
             else:
                 return -1
+    print(checkout_total)
+    print(item_counts)
     return checkout_total
+
+checkout('BEBEEE')
 
 
 

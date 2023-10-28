@@ -69,9 +69,3 @@ def checkout(skus: str) -> int:
     return checkout_total
 
 checkout('AAAAA')
-
-
-
-
-
-

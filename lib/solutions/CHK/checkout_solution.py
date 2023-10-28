@@ -19,24 +19,25 @@ def checkout(skus: str) -> int:
     print(basket_items)
 
     for item in basket_items:
-        if item == "3A" :
+        if item.strip()  == "3A" :
             checkout_total += 130
-        if item == "A":
+        if item.strip()  == "A":
             checkout_total += 50
-        if item == "2B":
+        if item.strip()  == "2B":
             checkout_total += 45
-        if item == "B":
+        if item.strip()  == "B":
             checkout_total += 30
-        if item == "C":
+        if item.strip()  == "C":
             checkout_total += 20
-        if item == "D":
+        if item.strip()  == "D":
             checkout_total += 15
     
     print(checkout_total)
     return checkout_total
 
 if __name__ == "__main__":
-    checkout("A, B")
+    checkout("A, B, 3A")
+
 
 
 

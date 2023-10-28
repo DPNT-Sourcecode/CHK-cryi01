@@ -12,6 +12,22 @@ def checkout(skus: str) -> int:
     Returns:
         int: an Integer representing the total checkout value of the items
     """
+    # build dict with baseline price
+    item_prices = {
+        'A': 50,
+        'B': 30,
+        'C': 20,
+        'D': 15,
+        'E': 40
+    }
+
+    # build dict with special offers (list of tuples in the values)
+    special_offers = {
+        'A': [(3, 130), (5, 120)],
+        'B': [(2, 45)],
+        # E: ?
+    }
+
     checkout_total = 0
     a_occurence = 0
     b_occurence = 0
@@ -20,7 +36,8 @@ def checkout(skus: str) -> int:
     basket_items = [item for item in skus]
 
     for item in basket_items:
-        if item not in ["A", "B", "C", "D"]:
+        if item not in item_prices.keys():
+            print('error')
             return -1
         if item.strip()  == "A":
             a_occurence += 1
@@ -42,3 +59,5 @@ def checkout(skus: str) -> int:
             checkout_total += 15
 
     return checkout_total
+
+checkout('ABF')

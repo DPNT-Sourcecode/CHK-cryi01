@@ -47,47 +47,28 @@ def checkout(skus: str) -> int:
             item_counts[item] = 1
 
     for item, count in item_counts.items():
+        # free offers
         if item in free_offers:
             for free_offer in free_offers[item]:
                 free_offers_count, free_offers_item = free_offer
-                print(item_counts)
                 if free_offers_item in item_counts.keys() and item_counts[free_offers_item] > 0:
-                    item_counts[free_offers_item] -= floor(item_counts[item] / free_offers_count)
-                    print(item_counts)
+                    item_counts[free_offers_item] -= abs(floor(item_counts[item] / free_offers_count))
+        # special offers
         if item in special_offers:
             for special_offer in special_offers[item]:
                 special_offer_count, special_offer_price = special_offer
                 while count >= special_offer_count:
                     checkout_total += special_offer_price
                     count -= special_offer_count
-
+        # normal cases
         if count > 0:
             if item in item_prices:
                 checkout_total += count * item_prices[item]
             else:
                 return -1
-    print(item_counts)
-    print(checkout_total)
+
     return checkout_total
 
-checkout('EEEEBB')
-
-"""
-        if item.strip()  == "A":
-            a_occurence += 1
-            checkout_total += item_prices[item]
-            if a_occurence == 3:
-                checkout_total -= 150
-                checkout_total += 130
-                a_occurence = 0
-        if item.strip()  == "B":
-            b_occurence += 1
-            checkout_total += item_prices[item]
-            if b_occurence == 2:
-                checkout_total -= 60
-                checkout_total += 45
-                b_occurence = 0
-"""
 
 
 

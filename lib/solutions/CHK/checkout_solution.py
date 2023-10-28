@@ -46,8 +46,7 @@ def checkout(skus: str) -> int:
             item_counts[item] = 1
 
     # reverse dict
-    item_counts_rev = {v: item_counts[v] for v in sorted(item_counts.keys(), reverse=True)}
-    print(item_counts_rev)
+    item_counts = {v: item_counts[v] for v in sorted(item_counts.keys(), reverse=True)}
 
     for item, count in item_counts.items():
         # free offers
@@ -69,11 +68,9 @@ def checkout(skus: str) -> int:
                 checkout_total += count * item_prices[item]
             else:
                 return -1
-    print(checkout_total)
     
     return checkout_total
 
-checkout('BEBEEEA')
 
 
 

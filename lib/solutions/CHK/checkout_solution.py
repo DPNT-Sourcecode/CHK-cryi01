@@ -19,7 +19,8 @@ def checkout(skus: str) -> int:
         'B': 30,
         'C': 20,
         'D': 15,
-        'E': 40
+        'E': 40,
+        'F': 10
     }
 
     # build dict with special offers (list of tuples in the values)
@@ -70,3 +71,4 @@ def checkout(skus: str) -> int:
                 return -1
     
     return checkout_total
+

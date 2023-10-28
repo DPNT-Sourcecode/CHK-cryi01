@@ -34,11 +34,6 @@ def checkout(skus: str) -> int:
         'F': [(3, 'F')]
     }
 
-    marketing_ops = {
-        'E': [(2, 'B')],
-        'F': [(3, 'F')]
-    }
-
     checkout_total = 0
     
     # parse input string first
@@ -75,11 +70,9 @@ def checkout(skus: str) -> int:
                 checkout_total += item_counts[item] * item_prices[item]
             else:
                 return -1
-    
-    print(checkout_total)
+
     return checkout_total
 
-checkout('FFFFFFFF')
 
 
 

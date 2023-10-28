@@ -46,15 +46,18 @@ def checkout(skus: str) -> int:
             item_counts[item] = 1
 
     for item, count in item_counts.items():
+        if item in free_offers:
+            for free_offer in free_offers[item]:
+                free_offers_count, free_offers_item = free_offer
+                if free_offers_item in item_counts.items()
+                print(free_offers_count)
+                print(free_offers_item)
         if item in special_offers:
             for special_offer in special_offers[item]:
                 special_offer_count, special_offer_price = special_offer
                 while count >= special_offer_count:
                     checkout_total += special_offer_price
                     count -= special_offer_count
-        if item in free_offers:
-            for free_offer in free_offers[item]:
-                free_offers_count, special_offer_free_item = special_offer
 
         if count > 0:
             if item in item_prices:
@@ -65,7 +68,7 @@ def checkout(skus: str) -> int:
     print(checkout_total)
     return checkout_total
 
-checkout('EEB')
+checkout('EE')
 
 """
         if item.strip()  == "A":
@@ -83,6 +86,7 @@ checkout('EEB')
                 checkout_total += 45
                 b_occurence = 0
 """
+
 
 
 

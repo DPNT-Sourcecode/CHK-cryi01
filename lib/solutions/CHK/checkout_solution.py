@@ -15,15 +15,12 @@ def checkout(skus: str) -> int:
     checkout_total = 0
     
     # parse input string first
-    basket_items = skus.split(",")
+    basket_items = [item for item in skus]
+    print(basket_items)
 
     for item in basket_items:
-        if item.strip()  == "3A" :
-            checkout_total += 130
         if item.strip()  == "A":
             checkout_total += 50
-        if item.strip()  == "2B":
-            checkout_total += 45
         if item.strip()  == "B":
             checkout_total += 30
         if item.strip()  == "C":
@@ -32,3 +29,5 @@ def checkout(skus: str) -> int:
             checkout_total += 15
 
     return checkout_total
+
+checkout("ABC")

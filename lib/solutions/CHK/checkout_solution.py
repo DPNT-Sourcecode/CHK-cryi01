@@ -29,8 +29,6 @@ def checkout(skus: str) -> int:
     }
 
     checkout_total = 0
-    a_occurence = 0
-    b_occurence = 0
     
     # parse input string first
     basket_items = [item for item in skus]
@@ -42,25 +40,26 @@ def checkout(skus: str) -> int:
             item_counts[item] += 1
         else:
             item_counts[item] = 1
-    print(item_counts)
 
     for item, count in item_counts.items():
         if item in special_offers:
             for special_offer in special_offers[item]:
                 special_offer_count, special_offer_price = special_offer
-                print(special_offer_count)
-                print(count)
-                print(special_offer_price)
-                #special_offer_count = 
-        if item in item_prices:
-            checkout_total += count * item_prices[item]
-        else:
-            return -1
+                while count >= special_offer_count:
+                    checkout_total += special_offer_price
+                    print(checkout_total)
+                    count -= special_offer_price
+                    print(count)
+        if count > 0:
+            if item in item_prices:
+                checkout_total += count * item_prices[item]
+            else:
+                return -1
 
     print(checkout_total)
     return checkout_total
 
-checkout('AAA')
+checkout('AAAA')
 
 """
         if item.strip()  == "A":
@@ -78,4 +77,5 @@ checkout('AAA')
                 checkout_total += 45
                 b_occurence = 0
 """
+
 

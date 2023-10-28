@@ -61,6 +61,7 @@ def checkout(skus: str) -> int:
             for free_offer in free_offers[item]:
                 free_offers_count, free_offers_item = free_offer
                 if free_offers_item in item_counts.keys() and item_counts[free_offers_item] > 0:
+                    print(item_counts)
                     item_counts[free_offers_item] -= abs(floor(item_counts[item] / free_offers_count))
                     print(item_counts)
         # special offers
@@ -78,7 +79,7 @@ def checkout(skus: str) -> int:
                 return -1
     
     print(checkout_total)
-    
+    print(abs(-2))
     return checkout_total
 
 checkout('EEEEB')

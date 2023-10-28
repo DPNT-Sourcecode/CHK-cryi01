@@ -2,6 +2,7 @@
 
 # noinspection PyUnusedLocal
 # skus = unicode string
+from math import floor
 def checkout(skus: str) -> int:
     """
     Method used to calculate the total checkout value based on the products contained in a basket
@@ -50,7 +51,7 @@ def checkout(skus: str) -> int:
             for free_offer in free_offers[item]:
                 free_offers_count, free_offers_item = free_offer
                 if free_offers_item in item_counts.keys():
-                    item_counts[free_offers_item] -= round(item_counts[item] / free_offers_count)
+                    item_counts[free_offers_item] -= floor(item_counts[item] / free_offers_count)
         if item in special_offers:
             for special_offer in special_offers[item]:
                 special_offer_count, special_offer_price = special_offer
@@ -65,7 +66,7 @@ def checkout(skus: str) -> int:
                 return -1
     print(item_counts)
     print(checkout_total)
-    print(round(6%2))
+    print(floor(3/2))
     return checkout_total
 
 checkout('EEEBB')
@@ -86,4 +87,5 @@ checkout('EEEBB')
                 checkout_total += 45
                 b_occurence = 0
 """
+
 

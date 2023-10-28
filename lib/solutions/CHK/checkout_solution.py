@@ -44,16 +44,16 @@ def checkout(skus: str) -> int:
             item_counts[item] = 1
     print(item_counts)
 
-    for item in item_counts:
+    for item, count in item_counts.items():
         if item in item_prices:
-            checkout_total += item_prices[item]
+            checkout_total += count * item_prices[item]
         else:
             return -1
 
     print(checkout_total)
     return checkout_total
 
-checkout('AAAA')
+checkout('AAAAB')
 
 """
         if item.strip()  == "A":
@@ -71,5 +71,3 @@ checkout('AAAA')
                 checkout_total += 45
                 b_occurence = 0
 """
-
-

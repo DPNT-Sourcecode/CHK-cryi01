@@ -24,9 +24,8 @@ def checkout(skus: str) -> int:
 
     # build dict with special offers (list of tuples in the values)
     special_offers = {
-        'A': [(3, 130), (5, 120)],
+        'A': [(3, 130), (5, 200)],
         'B': [(2, 45)],
-        #'E': [(2, 'B')]
     }
 
     free_offers = {
@@ -66,8 +65,11 @@ def checkout(skus: str) -> int:
                 checkout_total += count * item_prices[item]
             else:
                 return -1
-
+    print(checkout_total)
     return checkout_total
+
+checkout('AAAAA')
+
 
 
 

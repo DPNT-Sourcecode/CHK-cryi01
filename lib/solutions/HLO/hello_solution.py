@@ -12,6 +12,7 @@ def hello(friend_name: str) -> str:
     Returns:
         str: contains the message.
     """
-    return "Hello, World!"
+    return f"Hello, {friend_name}!"
+
 
 

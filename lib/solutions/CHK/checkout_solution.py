@@ -13,6 +13,8 @@ def checkout(skus: str) -> int:
         int: an Integer representing the total checkout value of the items
     """
     checkout_total = 0
+    a_occurence = 0
+    b_occurence = 0
     
     # parse input string first
     basket_items = [item for item in skus]
@@ -30,12 +32,15 @@ def checkout(skus: str) -> int:
         if item.strip()  == "B":
             b_occurence += 1
             checkout_total += 30
+            if b_occurence == 2:
+                checkout_total -= 60
+                checkout_total += 45
+                a_occurence = 0
         if item.strip()  == "C":
-            c_occurence += 1
             checkout_total += 20
         if item.strip()  == "D":
-            d_occurence += 1
             checkout_total += 15
 
     return checkout_total
+
 

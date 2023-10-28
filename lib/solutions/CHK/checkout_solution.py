@@ -45,7 +45,7 @@ def checkout(skus: str) -> int:
         else:
             item_counts[item] = 1
     print(item_counts)
-    print(free_offers['E'])
+    print(free_offers['E'][0][1])
 
     for item, count in item_counts.items():
         # free offers
@@ -72,6 +72,7 @@ def checkout(skus: str) -> int:
     return checkout_total
 
 checkout('BEBEEE')
+
 
 
 

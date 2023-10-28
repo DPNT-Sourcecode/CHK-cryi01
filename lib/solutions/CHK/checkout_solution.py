@@ -38,8 +38,10 @@ def checkout(skus: str) -> int:
     # count ocurrences of each item
     item_counts = {}
     for item in basket_items:
-        print(item)
-        item_counts[item] += 1
+        if item in item_counts:
+            item_counts[item] += 1
+        else:
+            item_counts[item] = 1
     print(item_counts)
 
     for item in basket_items:
@@ -68,4 +70,5 @@ def checkout(skus: str) -> int:
     return checkout_total
 
 checkout('CD')
+
 

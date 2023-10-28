@@ -50,7 +50,9 @@ def checkout(skus: str) -> int:
         'B': [(2, 45)],
         'H': [(10, 80), (5, 45)],
         'K': [(2, 150)],
-        'P': [(2, 150)],        
+        'P': [(5, 200)],
+        'Q': [(3, 80)],
+        'V': [(3, 130), (2, 90)],
     }
 
     free_offers = {
@@ -100,7 +102,8 @@ def checkout(skus: str) -> int:
     print(checkout_total)
     return checkout_total
 
-checkout('HHHHHHHHHH')
+checkout('PPPPP')
+
 
 
 

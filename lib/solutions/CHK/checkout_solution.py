@@ -36,29 +36,26 @@ def checkout(skus: str) -> int:
     basket_items = [item for item in skus]
 
     for item in basket_items:
-        if item not in item_prices.keys():
-            print('error')
-            return -1
         if item.strip()  == "A":
             a_occurence += 1
-            checkout_total += 50
+            checkout_total += item_prices[item]
             if a_occurence == 3:
                 checkout_total -= 150
                 checkout_total += 130
                 a_occurence = 0
         if item.strip()  == "B":
             b_occurence += 1
-            checkout_total += 30
+            checkout_total += item_prices[item]
             if b_occurence == 2:
                 checkout_total -= 60
                 checkout_total += 45
                 b_occurence = 0
-        if item.strip()  == "C":
+        if item in item_prices:
             checkout_total += item_prices[item]
-        if item.strip()  == "D":
-            checkout_total += item_prices[item]
+        else:
+            return -1
 
     print(checkout_total)
     return checkout_total
 
-checkout('C')
+checkout('CD')

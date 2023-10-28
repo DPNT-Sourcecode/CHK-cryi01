@@ -16,6 +16,3 @@ class TestSum():
             # test out of limits inputs
             sum_solution.compute(120, 10)
 
-
-
-

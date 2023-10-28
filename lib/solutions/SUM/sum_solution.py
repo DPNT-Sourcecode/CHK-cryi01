@@ -15,7 +15,3 @@ def compute(x: int, y: int) -> int:
         return x + y
     else:
         raise ValueError("Input parameters must be positive integers 0 and 100")
-
-
-
-

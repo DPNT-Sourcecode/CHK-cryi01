@@ -31,7 +31,12 @@ def checkout(skus: str) -> int:
 
     free_offers = {
         'E': [(2, 'B')]
-    } 
+    }
+
+    marketing_ops = {
+        'E': [(2, 'B')],
+        'F': [(2, 'F')]
+    }
 
     checkout_total = 0
     
@@ -70,5 +75,9 @@ def checkout(skus: str) -> int:
             else:
                 return -1
     
+    print(checkout_total)
+    
     return checkout_total
+
+checkout('F')
 

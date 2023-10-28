@@ -67,11 +67,11 @@ def checkout(skus: str) -> int:
         if item in special_offers:
             for special_offer in special_offers[item]:
                 special_offer_count, special_offer_price = special_offer
-                while count >= special_offer_count:
+                while item_counts[item] >= special_offer_count:
                     checkout_total += special_offer_price
-                    count -= special_offer_count
+                    item_counts[item] -= special_offer_count
         # normal cases
-        if count > 0:
+        if item_counts[item] > 0:
             if item in item_prices:
                 checkout_total += item_counts[item] * item_prices[item]
             else:
@@ -81,7 +81,7 @@ def checkout(skus: str) -> int:
     
     return checkout_total
 
-checkout('FFFF')
+checkout('EEEEB')
 
 
 

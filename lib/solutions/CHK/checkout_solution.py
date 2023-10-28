@@ -54,10 +54,11 @@ def checkout(skus: str) -> int:
                 checkout_total += 45
                 b_occurence = 0
         if item.strip()  == "C":
-            checkout_total += 20
+            checkout_total += item_prices[item]
         if item.strip()  == "D":
-            checkout_total += 15
+            checkout_total += item_prices[item]
 
+    print(checkout_total)
     return checkout_total
 
-checkout('ABF')
+checkout('C')

@@ -42,6 +42,3 @@ def checkout(skus: str) -> int:
             checkout_total += 15
 
     return checkout_total
-
-
-

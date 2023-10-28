@@ -52,7 +52,10 @@ def checkout(skus: str) -> int:
 
     free_offers = {
         'E': [(2, 'B')],
-        'F': [(3, 'F')]
+        'F': [(3, 'F')],
+        'N': [(3, 'M')],
+        'R': [(3, 'Q')],
+        'U': [(4, 'U')],
     }
 
     checkout_total = 0
@@ -91,6 +94,9 @@ def checkout(skus: str) -> int:
                 checkout_total += item_counts[item] * item_prices[item]
             else:
                 return -1
-
+    print(checkout_total)
     return checkout_total
+
+checkout('UUUU')
+
 

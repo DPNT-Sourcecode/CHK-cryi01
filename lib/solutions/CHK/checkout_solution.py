@@ -28,6 +28,10 @@ def checkout(skus: str) -> int:
         'E': [(2, 'B')]
     }
 
+    free_offer = {
+        'E': [(2, 'B')]
+    } 
+
     checkout_total = 0
     
     # parse input string first
@@ -48,6 +52,7 @@ def checkout(skus: str) -> int:
                 while count >= special_offer_count:
                     checkout_total += special_offer_price
                     count -= special_offer_count
+                
         if count > 0:
             if item in item_prices:
                 checkout_total += count * item_prices[item]
@@ -75,6 +80,7 @@ checkout('EEB')
                 checkout_total += 45
                 b_occurence = 0
 """
+
 
 
 

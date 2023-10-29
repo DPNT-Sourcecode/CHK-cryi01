@@ -92,7 +92,7 @@ def checkout(skus: str) -> int:
     filtered_total = 0
 
     # group discount offers
-    for discount_item in found_discount_offers_items.items():
+    for discount_item in found_discount_offers_items.keys():
         if discount_item in item_counts:
             discount_item_count += item_counts[discount_item]
             # if division by 3 is 1, apply discount
@@ -139,6 +139,7 @@ def checkout(skus: str) -> int:
     return checkout_total
 
 checkout('STX')
+
 
 
 

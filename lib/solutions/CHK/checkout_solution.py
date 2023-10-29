@@ -99,7 +99,7 @@ def checkout(skus: str) -> int:
     # group discount offers
     for discount_item in group_discount_offers_list:
         if discount_item in item_counts:
-            print(item_counts[discount_item])
+            print(item_counts[discount_item] // 3)
 
     # if item in group_discount_offers_list:
     #     found_discount_offers_items[item] += 1 * item_counts[item]
@@ -138,5 +138,6 @@ def checkout(skus: str) -> int:
     return checkout_total
 
 checkout('STX')
+
 
 

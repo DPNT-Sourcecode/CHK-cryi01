@@ -63,8 +63,6 @@ def checkout(skus: str) -> int:
         'U': [(4, 'U')],
     }
 
-    group_discount_offers_list = ['S','T','X','Y','Z']
-
     checkout_total = 0
     discount_item_count = 0
     
@@ -89,24 +87,19 @@ def checkout(skus: str) -> int:
 
     # reverse dict
     item_counts = {v: item_counts[v] for v in sorted(item_counts.keys(), reverse=True)}
-    filtered_total = 0
     available_discount = 3
 
     # group discount offers
     for discount_item in found_discount_offers_items.keys():
         if discount_item in item_counts:
             found_discount_offers_items[discount_item] = item_counts[discount_item]
-            discount_item_count += item_counts[discount_item]
-            print("discount_item_count:",discount_item_count)
-            print("found_discount_offers_items:",found_discount_offers_items)            
+            discount_item_count += item_counts[discount_item]          
             # if division by 3 is 1, apply discount
             if discount_item_count // 3 == 1:
-                print("Apply Discount!")
                 checkout_total += 45
                 filtered_item_counts = {key: value for key, value in found_discount_offers_items.items() if value > 0}
                 for discount_items in filtered_item_counts:
                     if available_discount > filtered_item_counts[discount_items]:
-                        print("available_discount:",available_discount)
                         item_counts[discount_items] -= filtered_item_counts[discount_items]
                         found_discount_offers_items[discount_items] -= filtered_item_counts[discount_items]
                         available_discount -= filtered_item_counts[discount_items]
@@ -115,24 +108,6 @@ def checkout(skus: str) -> int:
                         found_discount_offers_items[discount_items] -= available_discount
                 available_discount = 3
                 discount_item_count -= 3
-                #print(filtered_item_counts)
-                #item_counts[discount_item] -= found_discount_offers_items[discount_item]
-                #item_counts[discount_item] -= discount_count
-                #print(discount_count)
-                print("item_counts:",item_counts)
-
-    # if item in group_discount_offers_list:
-    #     found_discount_offers_items[item] += 1 * item_counts[item]
-    #     if sum(found_discount_offers_items.values()) == 3:
-    #         filtered_item_counts = {key: value for key, value in found_discount_offers_items.items() if value > 0}
-    #         for key, value in filtered_item_counts.items():   
-    #             filtered_total += value * item_prices[key]
-    #             item_counts[key] -= value
-    #             found_discount_offers_items[key] -= 1
-    #         #print(filtered_item_counts)
-    #         checkout_total -= filtered_total - item_prices[item]
-    #         checkout_total += 45
-    #     #found_discount_offers_items[item] -= 1    
 
     for item, count in item_counts.items():            
         # free offers
@@ -154,10 +129,10 @@ def checkout(skus: str) -> int:
                 checkout_total += item_counts[item] * item_prices[item]
             else:
                 return -1
-    print(checkout_total)
+
     return checkout_total
 
-checkout('STXSTXSTA')
+
 
 
 

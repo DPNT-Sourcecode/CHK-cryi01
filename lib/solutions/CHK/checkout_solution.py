@@ -98,21 +98,21 @@ def checkout(skus: str) -> int:
 
     # group discount offers
     for discount_item in group_discount_offers_list:
+        if discount_item in item_counts:
+            print(item_counts[discount_item])
 
-    """ 
-    if item in group_discount_offers_list:
-        found_discount_offers_items[item] += 1 * item_counts[item]
-        if sum(found_discount_offers_items.values()) == 3:
-            filtered_item_counts = {key: value for key, value in found_discount_offers_items.items() if value > 0}
-            for key, value in filtered_item_counts.items():   
-                filtered_total += value * item_prices[key]
-                item_counts[key] -= value
-                found_discount_offers_items[key] -= 1
-            #print(filtered_item_counts)
-            checkout_total -= filtered_total - item_prices[item]
-            checkout_total += 45
-        #found_discount_offers_items[item] -= 1    
-    """
+    # if item in group_discount_offers_list:
+    #     found_discount_offers_items[item] += 1 * item_counts[item]
+    #     if sum(found_discount_offers_items.values()) == 3:
+    #         filtered_item_counts = {key: value for key, value in found_discount_offers_items.items() if value > 0}
+    #         for key, value in filtered_item_counts.items():   
+    #             filtered_total += value * item_prices[key]
+    #             item_counts[key] -= value
+    #             found_discount_offers_items[key] -= 1
+    #         #print(filtered_item_counts)
+    #         checkout_total -= filtered_total - item_prices[item]
+    #         checkout_total += 45
+    #     #found_discount_offers_items[item] -= 1    
 
     for item, count in item_counts.items():            
         # free offers
@@ -134,9 +134,9 @@ def checkout(skus: str) -> int:
                 checkout_total += item_counts[item] * item_prices[item]
             else:
                 return -1
-    #print(found_discount_offers_items)
     print(checkout_total)
     return checkout_total
 
-checkout('STXST')
+checkout('STX')
+
 

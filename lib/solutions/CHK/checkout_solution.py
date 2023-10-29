@@ -77,12 +77,12 @@ def checkout(skus: str) -> int:
         else:
             item_counts[item] = 1
 
+    # oder of items is important - most expensive items first to favor the customer
     found_discount_offers_items = {
         'Z':0,
         'S':0,
         'T':0,
         'Y':0,
-
         'X':0,
     }
 
@@ -94,17 +94,13 @@ def checkout(skus: str) -> int:
     for discount_item in found_discount_offers_items.keys():
         if discount_item in item_counts:
             found_discount_offers_items[discount_item] = item_counts[discount_item]
-            discount_item_count += item_counts[discount_item]
-            print("discount_item_count:",discount_item_count)
-            print("found_discount_offers_items:",found_discount_offers_items)            
+            discount_item_count += item_counts[discount_item]       
             # if division by 3 is 1, apply discount
             if discount_item_count // 3 == 1:
-                print("Apply Discount!")
                 checkout_total += 45
                 filtered_item_counts = {key: value for key, value in found_discount_offers_items.items() if value > 0}
                 for discount_items in filtered_item_counts:
                     if available_discount > filtered_item_counts[discount_items]:
-                        print("available_discount:",available_discount)
                         item_counts[discount_items] -= filtered_item_counts[discount_items]
                         found_discount_offers_items[discount_items] -= filtered_item_counts[discount_items]
                         available_discount -= filtered_item_counts[discount_items]
@@ -113,7 +109,6 @@ def checkout(skus: str) -> int:
                         found_discount_offers_items[discount_items] -= available_discount
                 available_discount = 3
                 discount_item_count -= 3
-                print("item_counts:",item_counts) 
 
     for item, count in item_counts.items():            
         # free offers
@@ -135,11 +130,8 @@ def checkout(skus: str) -> int:
                 checkout_total += item_counts[item] * item_prices[item]
             else:
                 return -1
-    print(checkout_total)
     return checkout_total
 
-checkout('STXZ')
-"ah -> The policy of the supermarket is to always favor the customer when applying special offers. ::thumbsup::"
 
 
 

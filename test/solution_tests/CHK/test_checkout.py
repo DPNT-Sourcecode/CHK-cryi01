@@ -38,11 +38,15 @@ class TestCheckout():
         assert checkout_solution.checkout("VVV") == 130
         assert checkout_solution.checkout("VVVVV") == 220
         assert checkout_solution.checkout("STXSTXSTAAA") == 254
+        assert checkout_solution.checkout("SSSZ") == 65
+        assert checkout_solution.checkout("ZZZS") == 65
+        assert checkout_solution.checkout("STXZ") == 62
     
     def test_invalid_checkout(self):
         assert checkout_solution.checkout("-") == -1
         assert checkout_solution.checkout("AxA") == -1
         
+
 
 
 

@@ -78,11 +78,12 @@ def checkout(skus: str) -> int:
             item_counts[item] = 1
 
     found_discount_offers_items = {
+        'Z':0,
         'S':0,
         'T':0,
-        'X':0,
         'Y':0,
-        'Z':0
+
+        'X':0,
     }
 
     # reverse dict
@@ -138,6 +139,8 @@ def checkout(skus: str) -> int:
     return checkout_total
 
 checkout('STXZ')
+"ah -> The policy of the supermarket is to always favor the customer when applying special offers. ::thumbsup::"
+
 
 
 

@@ -90,6 +90,7 @@ def checkout(skus: str) -> int:
     # reverse dict
     item_counts = {v: item_counts[v] for v in sorted(item_counts.keys(), reverse=True)}
     filtered_total = 0
+    available_discount = 3
 
     # group discount offers
     for discount_item in found_discount_offers_items.keys():
@@ -147,4 +148,5 @@ def checkout(skus: str) -> int:
     return checkout_total
 
 checkout('STXSTX')
+
 
